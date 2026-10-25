@@ -1,0 +1,31 @@
+{
+  "name": "dsh-fishtank",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A small living fish with its own memory, moods and quiet thoughts, for DeepSeek Harness.",
+  "icon": "icon.svg",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": ["index.js", "client.js", "lib/*.js", "cordis.patch.yml", "locale/*.json", "icon.svg", "README.md", "LICENSE"],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": ">=0.1.7-rc.2 || >=0.2.0-rc.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+    }
+  },
+  "keywords": ["deepseek-harness", "dsh", "cordis", "plugin", "fish", "companion"],
+  "license": "MIT"
+}
